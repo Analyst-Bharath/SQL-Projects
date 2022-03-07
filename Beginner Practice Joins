@@ -1,0 +1,51 @@
+---I have create two tables using Postgres SQL and categorized the data. Then joined the tables using the syntax to get combined information in new table.
+
+
+table 1 sales_force
+
+salesman_id |    name    |   city   | commission 
+-------------+------------+----------+------------
+        5001 | James Hoog | New York |       0.15
+        5002 | Nail Knite | Paris    |       0.13
+        5005 | Pit Alex   | London   |       0.11
+        5006 | Mc Lyon    | Paris    |       0.14
+        5007 | Paul Adam  | Rome     |       0.13
+        5003 | Lauson Hen | San Jose |       0.12
+
+table 2 bonus_info
+
+salesman_id |    bonus_percent    |   new_location
+-------------+------------+----------+------------
+        5001 | 10                 |       Romania
+        5002 | 16                 |       Latvia
+        5003 | 15                 |       Vatican
+        5005 | 10                 |       Italy
+        5006 | 14                 |       Russia
+        5007 | 12                 |       Lisbon
+
+
+SQL Query Syntax
+
+ 
+SELECT totalsales_table.salesman_id,
+totalsales_table.name, 
+totalsales_table.city, 
+totalsales_table.commission, 
+bonus.bonus_percent, 
+bonus.new_location 
+FROM sales_force AS totalsales_table
+JOIN bonus_info AS bonus
+ON bonus.salesman_id = totalsales_table.salesman_id
+ORDER BY salesman_id ASC ;
+
+
+
+Result of Join
+
+"salesman_id","name","city","commission","bonus_percent","new_location"
+5001,"James Hoog","New York",0.15,10,"Romania"
+5002,"Nail Knite","Paris",0.13,16,"Latvia"
+5003,"Lauson Hen","San Jose",0.12,15,"Vatican"
+5005,"Pit Alex","London",0.11,10,"Italy"
+5006,"Mc Lyon","Paris",0.14,14,"Russia"
+5007,"Paul Adam","Rome",0.13,12,"Lisbon"
