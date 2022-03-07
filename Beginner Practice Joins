@@ -1,4 +1,4 @@
----I have create two tables using Postgres SQL and categorized the data. Then joined the tables using the syntax to get combined information in new table.
+---I have created two tables using Postgres SQL and categorized the data. Then joined the tables using the syntax to get combined information in new table.
 
 
 table 1 sales_force
